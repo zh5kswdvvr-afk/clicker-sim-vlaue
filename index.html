@@ -44,7 +44,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebas
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 import { getDatabase, ref, onValue, push, set, update, remove } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
 const firebaseConfig={apiKey:"AIzaSyBcqfD5Hukw0ICUeAqBPXQ9f5YCfFPOsgQ",authDomain:"clicker-sim-vlauelist.firebaseapp.com",databaseURL:"https://clicker-sim-vlauelist-default-rtdb.firebaseio.com/",projectId:"clicker-sim-vlauelist",storageBucket:"clicker-sim-vlauelist.firebasestorage.app",messagingSenderId:"797904782595",appId:"1:797904782595:web:5db6b3eb91e8bb652d1536"};
-const ADMIN_UID="PASTE_YOUR_FIREBASE_UID_HERE";
+const ADMIN_UID="yQaCAvnD9ZOf2H5WsjUB1EzFJBQ2";
 const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getDatabase(app);
 let pets=[];
 window.nova={db,ref,onValue,push,set,update,remove};
