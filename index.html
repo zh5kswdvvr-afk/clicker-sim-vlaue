@@ -1,28 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Nova Values — Clicker Simulator</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nova Values — Clicker Simulator</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header class="topbar">
-  <a class="brand" href="#">
-    <span class="logo">✦</span>
-    <span>NOVA<span>VALUES</span></span>
+  <a href="#" class="brand">
+    <div class="logo">N</div>
+    <span>Nova <span>Values</span></span>
   </a>
 
   <nav>
-    <a class="active" href="#values">Values</a>
-    <a href="#trends">Trends</a>
+    <a href="#values" class="active">Values</a>
     <a href="#calculator">Calculator</a>
     <a href="#about">About</a>
   </nav>
-
-  <button class="mobile-btn" id="mobileBtn" type="button">☰</button>
 
   <button class="admin-btn" id="adminBtn" type="button">
     🔐 Admin
@@ -34,39 +31,44 @@
   <div class="stars"></div>
 
   <div class="hero-inner">
-    <div class="pill">✦ CLICKER SIMULATOR VALUE LIST</div>
+    <div class="pill">CLICKER SIMULATOR VALUE LIST</div>
 
-    <h1>Know the <span>real value.</span></h1>
+    <h1>
+      Know the <span>real value.</span>
+    </h1>
 
     <p>
-      Fast, clean and community-driven values for your Clicker Simulator trades.
+      The cleanest Clicker Simulator value list.
+      Check pet values, compare trades and stay up to date.
     </p>
 
     <div class="hero-actions">
-      <a class="btn primary" href="#values">Explore Values →</a>
-      <a class="btn ghost" href="#calculator">Trade Calculator</a>
+      <a href="#values" class="btn primary">View Values</a>
+      <a href="#calculator" class="btn ghost">Trade Calculator</a>
     </div>
   </div>
 </section>
 
 
-<main>
-
-<section id="values" class="section">
+<section class="section" id="values">
 
   <div class="section-head">
     <div>
-      <span class="eyebrow">DATABASE</span>
-      <h2>Pet Values</h2>
+      <div class="eyebrow">PET VALUES</div>
+      <h2>Current Values</h2>
     </div>
 
     <div class="controls">
-      <input id="search" placeholder="🔎  Search pets...">
+      <input
+        id="search"
+        type="text"
+        placeholder="Search pets..."
+      >
 
       <select id="sort">
-        <option value="value">Highest Value</option>
+        <option value="value-desc">Highest Value</option>
+        <option value="value-asc">Lowest Value</option>
         <option value="name">Name</option>
-        <option value="demand">Demand</option>
       </select>
     </div>
   </div>
@@ -77,34 +79,26 @@
     <button class="filter" data-rarity="Secret">Secret</button>
     <button class="filter" data-rarity="Mythic">Mythic</button>
     <button class="filter" data-rarity="Legendary">Legendary</button>
-    <button class="filter" data-rarity="Exclusive">Exclusive</button>
+    <button class="filter" data-rarity="Epic">Epic</button>
+    <button class="filter" data-rarity="Rare">Rare</button>
   </div>
 
 
-  <div id="petGrid" class="pet-grid"></div>
-
-</section>
-
-
-<section id="trends" class="section alt">
-
-  <div class="section-head">
-    <div>
-      <span class="eyebrow">MARKET</span>
-      <h2>Value Trends</h2>
+  <div class="pet-grid" id="petGrid">
+    <div class="empty">
+      Loading pets...
     </div>
   </div>
 
-  <div class="trend-grid" id="trendGrid"></div>
-
 </section>
 
 
-<section id="calculator" class="section">
+
+<section class="section alt" id="calculator">
 
   <div class="section-head">
     <div>
-      <span class="eyebrow">TRADING</span>
+      <div class="eyebrow">TRADE TOOL</div>
       <h2>Trade Calculator</h2>
     </div>
   </div>
@@ -117,17 +111,20 @@
 
       <div id="yourItems"></div>
 
-      <button class="add" id="addYou" type="button">
-        ＋ Add Pet
+      <button class="add" id="addYour">
+        + Add Pet
       </button>
 
       <div class="total">
-        Total <strong id="yourTotal">0</strong>
+        <span>Total Value</span>
+        <strong id="yourTotal">0 Tokens</strong>
       </div>
     </div>
 
 
-    <div class="swap">⇄</div>
+    <div class="swap">
+      ⇄
+    </div>
 
 
     <div class="trade-side">
@@ -135,18 +132,19 @@
 
       <div id="theirItems"></div>
 
-      <button class="add" id="addThem" type="button">
-        ＋ Add Pet
+      <button class="add" id="addTheir">
+        + Add Pet
       </button>
 
       <div class="total">
-        Total <strong id="theirTotal">0</strong>
+        <span>Total Value</span>
+        <strong id="theirTotal">0 Tokens</strong>
       </div>
     </div>
 
 
     <div class="result" id="tradeResult">
-      Add pets to check the trade.
+      Add pets to compare the trade.
     </div>
 
   </div>
@@ -154,45 +152,55 @@
 </section>
 
 
-<section id="about" class="section about">
 
-  <div>
-    <span class="eyebrow">ABOUT NOVA VALUES</span>
+<section class="section" id="about">
 
-    <h2>Built for traders.</h2>
-
-    <p>
-      Nova Values is a fan-made value-list for Clicker Simulator.
-    </p>
-  </div>
-
-
-  <div class="stats">
+  <div class="about">
 
     <div>
-      <b>24/7</b>
-      <span>Value access</span>
+      <div class="eyebrow">ABOUT NOVA VALUES</div>
+
+      <h2>Simple. Clean. Accurate.</h2>
+
+      <p>
+        Nova Values is a community-focused value list for
+        Clicker Simulator. Values are designed to make
+        trading easier and clearer.
+      </p>
+
+      <p>
+        Database powered by Firebase.
+      </p>
     </div>
 
-    <div>
-      <b>W/F/L</b>
-      <span>Trade checks</span>
-    </div>
 
-    <div>
-      <b>∞</b>
-      <span>Custom pets</span>
+    <div class="stats">
+
+      <div>
+        <b id="statPets">0</b>
+        <span>Pets</span>
+      </div>
+
+      <div>
+        <b>100%</b>
+        <span>Free</span>
+      </div>
+
+      <div>
+        <b>24/7</b>
+        <span>Online</span>
+      </div>
+
     </div>
 
   </div>
 
 </section>
 
-</main>
 
 
 <footer>
-  © 2026 Nova Values · Fan-made project · Not affiliated with the game developer.
+  Nova Values — Clicker Simulator
 </footer>
 
 
@@ -203,12 +211,16 @@
 
   <div class="modal-card">
 
-    <button class="close" id="closeLogin" type="button">×</button>
+    <button class="modal-close" id="closeLogin">
+      ×
+    </button>
+
+    <div class="eyebrow">ADMIN ACCESS</div>
 
     <h2>Admin Login</h2>
 
-    <p>
-      Only the Firebase admin account can edit values.
+    <p class="modal-text">
+      Sign in to manage the pet values.
     </p>
 
     <input
@@ -225,11 +237,11 @@
       autocomplete="current-password"
     >
 
-    <button id="loginBtn" class="btn primary" type="button">
+    <button class="btn primary full" id="loginBtn">
       Login
     </button>
 
-    <p id="loginStatus" class="status"></p>
+    <div class="status" id="loginStatus"></div>
 
   </div>
 
@@ -241,85 +253,82 @@
 
 <div class="modal hidden" id="adminModal">
 
-  <div class="modal-card wide">
+  <div class="modal-card admin-card">
 
-    <button class="close" id="closeAdmin" type="button">×</button>
+    <button class="modal-close" id="closeAdmin">
+      ×
+    </button>
 
-    <div class="admin-head">
+    <div class="eyebrow">ADMIN PANEL</div>
 
-      <div>
-        <span class="eyebrow">ADMIN</span>
-        <h2>Manage Values</h2>
-      </div>
-
-      <button id="logoutBtn" class="btn ghost" type="button">
-        Log out
-      </button>
-
-    </div>
+    <h2>Manage Pets</h2>
 
 
     <form id="petForm">
 
-      <input type="hidden" id="editId">
-
       <input
         id="petName"
-        placeholder="Pet name"
+        type="text"
+        placeholder="Pet Name"
         required
       >
 
-      <select id="petRarity">
-        <option>Secret</option>
-        <option>Mythic</option>
-        <option>Legendary</option>
-        <option>Exclusive</option>
+
+      <select id="petRarity" required>
+        <option value="">Select Rarity</option>
+        <option value="Secret">Secret</option>
+        <option value="Mythic">Mythic</option>
+        <option value="Legendary">Legendary</option>
+        <option value="Epic">Epic</option>
+        <option value="Rare">Rare</option>
       </select>
+
 
       <input
         id="petValue"
         type="number"
+        placeholder="Value in Tokens"
         min="0"
-        placeholder="Value"
         required
       >
 
-      <input
-        id="petDemand"
-        type="number"
-        min="1"
-        max="5"
-        placeholder="Demand 1-5"
-        required
-      >
 
       <input
-        id="petTrend"
-        type="number"
-        min="-100"
-        max="100"
-        placeholder="Trend %"
-        required
+        id="petImage"
+        type="url"
+        placeholder="Image URL (https://...)"
       >
+
 
       <input
         id="petIcon"
-        placeholder="Emoji / icon"
-        maxlength="8"
+        type="text"
+        placeholder="Emoji fallback, e.g. 🐉"
+        maxlength="4"
       >
 
-      <button class="btn primary" type="submit">
-        Save Pet
+
+      <button class="btn primary full" type="submit" id="savePetBtn">
+        Add Pet
       </button>
 
-      <button class="btn ghost" type="button" id="cancelEdit">
-        Clear
+      <button
+        class="btn ghost full hidden"
+        type="button"
+        id="cancelEdit"
+      >
+        Cancel Edit
       </button>
 
     </form>
 
 
-    <div id="adminPets"></div>
+    <div class="status" id="adminStatus"></div>
+
+
+    <div class="admin-list" id="adminList">
+      Loading...
+    </div>
 
   </div>
 
@@ -330,7 +339,9 @@
 <!-- FIREBASE -->
 
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
 
 
@@ -346,7 +357,6 @@ const firebaseConfig = {
   appId: "1:797904782595:web:5db6b3eb91e8bb652d1536"
 };
 
-
 const ADMIN_UID = "yQaCAvnD9ZOf2H5WsjUB1EzFJBQ2";
 
 
@@ -355,283 +365,303 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const db = firebase.database();
 
-let pets = [];
 
+let pets = [];
+let currentRarity = "all";
+let editingPetId = null;
+
+
+
+/* ---------- DEFAULT PETS ---------- */
 
 const defaultPets = [
-
   {
-    name: "Cosmic Dragon",
+    name: "Titan",
     rarity: "Secret",
-    value: 2500000000,
-    demand: 5,
-    trend: 14,
-    icon: "🐉"
+    value: 1000000,
+    icon: "🐉",
+    image: ""
   },
-
   {
-    name: "Galaxy Dominus",
-    rarity: "Secret",
-    value: 1800000000,
-    demand: 5,
-    trend: 9,
-    icon: "👑"
-  },
-
-  {
-    name: "Void Overlord",
-    rarity: "Secret",
-    value: 1250000000,
-    demand: 4,
-    trend: -3,
-    icon: "🌑"
-  },
-
-  {
-    name: "Nebula Serpent",
+    name: "Galaxy Dragon",
     rarity: "Mythic",
-    value: 620000000,
-    demand: 4,
-    trend: 12,
-    icon: "🐍"
+    value: 500000,
+    icon: "🐲",
+    image: ""
   },
-
   {
-    name: "Stellar Kitsune",
-    rarity: "Mythic",
-    value: 450000000,
-    demand: 4,
-    trend: 6,
-    icon: "🦊"
-  },
-
-  {
-    name: "Quantum Cat",
-    rarity: "Mythic",
-    value: 275000000,
-    demand: 3,
-    trend: -5,
-    icon: "🐈"
-  },
-
-  {
-    name: "Astral Phoenix",
+    name: "Cosmic Cat",
     rarity: "Legendary",
-    value: 90000000,
-    demand: 3,
-    trend: 8,
-    icon: "🔥"
-  },
-
-  {
-    name: "Moonlight Wolf",
-    rarity: "Legendary",
-    value: 65000000,
-    demand: 3,
-    trend: 2,
-    icon: "🐺"
-  },
-
-  {
-    name: "Cosmic Bunny",
-    rarity: "Exclusive",
-    value: 25000000,
-    demand: 2,
-    trend: -2,
-    icon: "🐰"
+    value: 100000,
+    icon: "🐱",
+    image: ""
   }
-
 ];
 
 
-function fmt(n) {
 
-  n = Number(n) || 0;
-
-  if (n >= 1e9)
-    return (n / 1e9).toFixed(1) + "B";
-
-  if (n >= 1e6)
-    return (n / 1e6).toFixed(1) + "M";
-
-  if (n >= 1e3)
-    return (n / 1e3).toFixed(1) + "K";
-
-  return n.toLocaleString();
-
-}
-
-
-function adminOk() {
-
-  return !!auth.currentUser &&
-         auth.currentUser.uid === ADMIN_UID;
-
-}
-
+/* ---------- HELPERS ---------- */
 
 function show(id) {
-
   const element = document.getElementById(id);
 
-  if (element)
+  if (element) {
     element.classList.remove("hidden");
-
+  }
 }
 
 
 function hide(id) {
-
   const element = document.getElementById(id);
 
-  if (element)
+  if (element) {
     element.classList.add("hidden");
+  }
+}
+
+
+function adminOk() {
+  return (
+    auth.currentUser &&
+    auth.currentUser.uid === ADMIN_UID
+  );
+}
+
+
+function formatValue(value) {
+
+  const number = Number(value) || 0;
+
+  if (number >= 1000000000) {
+    return (number / 1000000000).toFixed(1).replace(".0", "") + "B Tokens";
+  }
+
+  if (number >= 1000000) {
+    return (number / 1000000).toFixed(1).replace(".0", "") + "M Tokens";
+  }
+
+  if (number >= 1000) {
+    return (number / 1000).toFixed(1).replace(".0", "") + "K Tokens";
+  }
+
+  return number.toLocaleString() + " Tokens";
+}
+
+
+function escapeHtml(text) {
+
+  return String(text ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 
 }
 
 
-/* PET RENDERING */
+
+/* ---------- PET IMAGE ---------- */
+
+function petVisual(pet) {
+
+  if (pet.image && pet.image.trim() !== "") {
+
+    return `
+      <img
+        src="${escapeHtml(pet.image)}"
+        class="pet-photo"
+        alt="${escapeHtml(pet.name)}"
+        loading="lazy"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='grid';"
+      >
+
+      <div
+        class="pet-icon"
+        style="display:none"
+      >
+        ${escapeHtml(pet.icon || "🐾")}
+      </div>
+    `;
+
+  }
+
+  return `
+    <div class="pet-icon">
+      ${escapeHtml(pet.icon || "🐾")}
+    </div>
+  `;
+
+}
+
+
+
+/* ---------- LOAD PETS ---------- */
+
+function loadPets() {
+
+  db.ref("pets").on(
+    "value",
+    snapshot => {
+
+      const data = snapshot.val();
+
+      if (data) {
+
+        pets = Object.entries(data).map(
+          ([id, pet]) => ({
+            id,
+            ...pet
+          })
+        );
+
+      } else {
+
+        pets = defaultPets.map(
+          (pet, index) => ({
+            id: "default-" + index,
+            ...pet
+          })
+        );
+
+      }
+
+      renderPets();
+      renderAdminList();
+      updateStats();
+      updateCalculator();
+
+    },
+
+    error => {
+
+      console.error(error);
+
+      pets = defaultPets.map(
+        (pet, index) => ({
+          id: "default-" + index,
+          ...pet
+        })
+      );
+
+      renderPets();
+      renderAdminList();
+      updateStats();
+      updateCalculator();
+
+    }
+  );
+
+}
+
+
+
+/* ---------- RENDER PETS ---------- */
 
 function renderPets() {
 
-  const search = document.getElementById("search");
-  const sort = document.getElementById("sort");
   const grid = document.getElementById("petGrid");
 
-  const q = search.value.toLowerCase();
-  const s = sort.value;
-
-  const activeFilter =
-    document.querySelector(".filter.active");
-
-  const rarity =
-    activeFilter ?
-    activeFilter.dataset.rarity :
-    "all";
+  if (!grid) return;
 
 
-  let list = pets.filter(p => {
+  const search =
+    document.getElementById("search").value
+      .toLowerCase()
+      .trim();
 
-    const matchesRarity =
-      rarity === "all" ||
-      p.rarity === rarity;
+
+  let filtered = pets.filter(pet => {
 
     const matchesSearch =
-      String(p.name || "")
-      .toLowerCase()
-      .includes(q);
+      String(pet.name || "")
+        .toLowerCase()
+        .includes(search);
 
-    return matchesRarity && matchesSearch;
+    const matchesRarity =
+      currentRarity === "all" ||
+      pet.rarity === currentRarity;
 
-  });
-
-
-  list.sort((a, b) => {
-
-    if (s === "name")
-      return String(a.name).localeCompare(String(b.name));
-
-    if (s === "demand")
-      return Number(b.demand) - Number(a.demand);
-
-    return Number(b.value) - Number(a.value);
+    return matchesSearch && matchesRarity;
 
   });
 
 
-  if (!list.length) {
+  const sort =
+    document.getElementById("sort").value;
 
-    grid.innerHTML =
-      '<div class="empty">No pets found.</div>';
+
+  if (sort === "value-desc") {
+
+    filtered.sort(
+      (a, b) =>
+        Number(b.value || 0) -
+        Number(a.value || 0)
+    );
+
+  } else if (sort === "value-asc") {
+
+    filtered.sort(
+      (a, b) =>
+        Number(a.value || 0) -
+        Number(b.value || 0)
+    );
+
+  } else if (sort === "name") {
+
+    filtered.sort(
+      (a, b) =>
+        String(a.name || "")
+          .localeCompare(String(b.name || ""))
+    );
+
+  }
+
+
+  if (!filtered.length) {
+
+    grid.innerHTML = `
+      <div class="empty">
+        No pets found.
+      </div>
+    `;
 
     return;
 
   }
 
 
-  grid.innerHTML = list.map(p => `
+  grid.innerHTML = filtered.map(pet => `
 
-    <article class="pet">
+    <div class="pet">
 
-      <div class="pet-icon">
-        ${p.icon || "🐾"}
-      </div>
+      ${petVisual(pet)}
 
       <div>
 
         <div class="rarity">
-          ${p.rarity || "Unknown"}
+          ${escapeHtml(pet.rarity || "Unknown")}
         </div>
 
-        <h3>${p.name || "Unknown Pet"}</h3>
+        <h3>
+          ${escapeHtml(pet.name || "Unnamed Pet")}
+        </h3>
 
         <div class="meta">
-          Demand
-          ${"★".repeat(Number(p.demand) || 0)}
-          ${"☆".repeat(5 - (Number(p.demand) || 0))}
+          Clicker Simulator
         </div>
 
       </div>
 
       <div class="value">
 
-        <b>${fmt(p.value)}</b>
+        <b>
+          ${formatValue(pet.value)}
+        </b>
 
         <small>
-          ${Number(p.trend) >= 0 ? "↗" : "↘"}
-          ${Math.abs(Number(p.trend) || 0)}%
+          Value
         </small>
-
-      </div>
-
-    </article>
-
-  `).join("");
-
-}
-
-
-/* TRENDS */
-
-function renderTrends() {
-
-  const grid = document.getElementById("trendGrid");
-
-  const list = pets
-    .slice()
-    .sort((a, b) =>
-      Number(b.trend) - Number(a.trend)
-    )
-    .slice(0, 6);
-
-
-  grid.innerHTML = list.map(p => `
-
-    <div class="trend">
-
-      <div class="trend-top">
-
-        <b>
-          ${p.icon || "🐾"} ${p.name}
-        </b>
-
-        <b class="${Number(p.trend) >= 0 ? "up" : "down"}">
-          ${Number(p.trend) >= 0 ? "+" : ""}
-          ${Number(p.trend) || 0}%
-        </b>
-
-      </div>
-
-      <div class="meta">
-        ${fmt(p.value)} value · ${p.rarity}
-      </div>
-
-      <div class="bar">
-
-        <i style="width:${Math.min(
-          100,
-          Math.abs(Number(p.trend) || 0) * 5 + 20
-        )}%"></i>
 
       </div>
 
@@ -642,48 +672,437 @@ function renderTrends() {
 }
 
 
-/* ADMIN LIST */
 
-function renderAdmin() {
+/* ---------- FILTERS ---------- */
 
-  const container =
-    document.getElementById("adminPets");
+document.querySelectorAll(".filter")
+  .forEach(button => {
 
-  container.innerHTML = pets.map(p => `
+    button.addEventListener(
+      "click",
+      () => {
+
+        document
+          .querySelectorAll(".filter")
+          .forEach(b =>
+            b.classList.remove("active")
+          );
+
+        button.classList.add("active");
+
+        currentRarity =
+          button.dataset.rarity;
+
+        renderPets();
+
+      }
+    );
+
+  });
+
+
+
+document.getElementById("search")
+  .addEventListener(
+    "input",
+    renderPets
+  );
+
+
+document.getElementById("sort")
+  .addEventListener(
+    "change",
+    renderPets
+  );
+
+
+
+/* ---------- ADMIN LOGIN ---------- */
+
+document.getElementById("adminBtn")
+  .addEventListener(
+    "click",
+    () => {
+
+      if (adminOk()) {
+
+        show("adminModal");
+
+      } else {
+
+        show("loginModal");
+
+      }
+
+    }
+  );
+
+
+document.getElementById("closeLogin")
+  .addEventListener(
+    "click",
+    () => hide("loginModal")
+  );
+
+
+document.getElementById("closeAdmin")
+  .addEventListener(
+    "click",
+    () => hide("adminModal")
+  );
+
+
+
+document.getElementById("loginBtn")
+  .addEventListener(
+    "click",
+    async () => {
+
+      const email =
+        document.getElementById("loginEmail").value.trim();
+
+      const password =
+        document.getElementById("loginPassword").value;
+
+      const status =
+        document.getElementById("loginStatus");
+
+
+      status.textContent = "Logging in...";
+
+
+      try {
+
+        const result =
+          await auth.signInWithEmailAndPassword(
+            email,
+            password
+          );
+
+
+        if (result.user.uid !== ADMIN_UID) {
+
+          await auth.signOut();
+
+          status.textContent =
+            "This account is not the admin account.";
+
+          return;
+
+        }
+
+
+        status.textContent = "";
+
+        hide("loginModal");
+        show("adminModal");
+
+        document.getElementById("loginPassword").value = "";
+
+
+      } catch (error) {
+
+        console.error(error);
+
+        status.textContent =
+          "Login failed. Check your email and password.";
+
+      }
+
+    }
+  );
+
+
+
+/* ---------- AUTH STATE ---------- */
+
+auth.onAuthStateChanged(user => {
+
+  if (user && user.uid === ADMIN_UID) {
+
+    document.getElementById("adminBtn").textContent =
+      "🔓 Admin";
+
+  } else {
+
+    document.getElementById("adminBtn").textContent =
+      "🔐 Admin";
+
+  }
+
+});
+
+
+
+/* ---------- ADD / EDIT PET ---------- */
+
+document.getElementById("petForm")
+  .addEventListener(
+    "submit",
+    async event => {
+
+      event.preventDefault();
+
+
+      if (!adminOk()) {
+
+        show("loginModal");
+        return;
+
+      }
+
+
+      const name =
+        document.getElementById("petName").value.trim();
+
+      const rarity =
+        document.getElementById("petRarity").value;
+
+      const value =
+        Number(document.getElementById("petValue").value);
+
+      const image =
+        document.getElementById("petImage").value.trim();
+
+      const icon =
+        document.getElementById("petIcon").value.trim() || "🐾";
+
+
+      const status =
+        document.getElementById("adminStatus");
+
+
+      if (!name || !rarity || !Number.isFinite(value)) {
+
+        status.textContent =
+          "Please fill in all required fields.";
+
+        return;
+
+      }
+
+
+      const petData = {
+        name,
+        rarity,
+        value,
+        image,
+        icon
+      };
+
+
+      try {
+
+        if (editingPetId) {
+
+          await db
+            .ref("pets/" + editingPetId)
+            .update(petData);
+
+          status.textContent =
+            "Pet updated successfully.";
+
+        } else {
+
+          await db
+            .ref("pets")
+            .push(petData);
+
+          status.textContent =
+            "Pet added successfully.";
+
+        }
+
+
+        resetPetForm();
+
+      } catch (error) {
+
+        console.error(error);
+
+        status.textContent =
+          "Could not save the pet.";
+
+      }
+
+    }
+  );
+
+
+
+/* ---------- RESET FORM ---------- */
+
+function resetPetForm() {
+
+  editingPetId = null;
+
+  document.getElementById("petForm").reset();
+
+  document.getElementById("savePetBtn").textContent =
+    "Add Pet";
+
+  document.getElementById("cancelEdit")
+    .classList.add("hidden");
+
+}
+
+
+
+/* ---------- EDIT ---------- */
+
+function editPet(id) {
+
+  const pet =
+    pets.find(p => p.id === id);
+
+  if (!pet) return;
+
+
+  editingPetId = id;
+
+
+  document.getElementById("petName").value =
+    pet.name || "";
+
+  document.getElementById("petRarity").value =
+    pet.rarity || "";
+
+  document.getElementById("petValue").value =
+    pet.value || 0;
+
+  document.getElementById("petImage").value =
+    pet.image || "";
+
+  document.getElementById("petIcon").value =
+    pet.icon || "";
+
+
+  document.getElementById("savePetBtn").textContent =
+    "Save Changes";
+
+  document.getElementById("cancelEdit")
+    .classList.remove("hidden");
+
+}
+
+
+
+/* ---------- CANCEL EDIT ---------- */
+
+document.getElementById("cancelEdit")
+  .addEventListener(
+    "click",
+    resetPetForm
+  );
+
+
+
+/* ---------- DELETE ---------- */
+
+async function deletePet(id) {
+
+  if (!adminOk()) return;
+
+
+  const pet =
+    pets.find(p => p.id === id);
+
+
+  if (!pet) return;
+
+
+  const confirmed =
+    confirm(
+      `Delete "${pet.name}"?`
+    );
+
+
+  if (!confirmed) return;
+
+
+  try {
+
+    await db
+      .ref("pets/" + id)
+      .remove();
+
+  } catch (error) {
+
+    console.error(error);
+
+    document.getElementById("adminStatus").textContent =
+      "Could not delete pet.";
+
+  }
+
+}
+
+
+
+/* ---------- ADMIN LIST ---------- */
+
+function renderAdminList() {
+
+  const list =
+    document.getElementById("adminList");
+
+  if (!list) return;
+
+
+  if (!adminOk()) {
+
+    list.innerHTML =
+      "Login as admin to manage pets.";
+
+    return;
+
+  }
+
+
+  if (!pets.length) {
+
+    list.innerHTML =
+      "No pets yet.";
+
+    return;
+
+  }
+
+
+  list.innerHTML = pets.map(pet => `
 
     <div class="admin-row">
 
-      <span>
+      <div>
 
-        ${p.icon || "🐾"}
-
-        <b>${p.name}</b>
+        <strong>
+          ${escapeHtml(pet.name)}
+        </strong>
 
         <small>
-          ${p.rarity} · ${fmt(p.value)}
+          ${formatValue(pet.value)}
         </small>
 
-      </span>
+      </div>
 
-      <span>
+
+      <div class="admin-actions">
 
         <button
           class="edit"
-          data-id="${p.id}"
-          type="button"
+          onclick="editPet('${pet.id}')"
         >
           Edit
         </button>
 
         <button
           class="delete"
-          data-id="${p.id}"
-          type="button"
+          onclick="deletePet('${pet.id}')"
         >
           Delete
         </button>
 
-      </span>
+      </div>
 
     </div>
 
@@ -692,40 +1111,165 @@ function renderAdmin() {
 }
 
 
-/* TRADE CALCULATOR */
 
-function calcTrade() {
+/* ---------- STATS ---------- */
 
-  function sum(selector) {
+function updateStats() {
 
-    return [
-      ...document.querySelector(selector).children
-    ].reduce((total, row) => {
+  const stat =
+    document.getElementById("statPets");
 
-      const select = row.querySelector("select");
-      const input = row.querySelector("input");
+  if (stat) {
 
-      if (!select || !input)
-        return total;
-
-      return total +
-        Number(select.value) *
-        Number(input.value || 0);
-
-    }, 0);
+    stat.textContent =
+      pets.length;
 
   }
 
-
-  const yourTotal = sum("#yourItems");
-  const theirTotal = sum("#theirItems");
+}
 
 
-  document.getElementById("yourTotal").textContent =
-    fmt(yourTotal);
 
-  document.getElementById("theirTotal").textContent =
-    fmt(theirTotal);
+/* ---------- CALCULATOR ---------- */
+
+function createTradeRow(container, side) {
+
+  const row =
+    document.createElement("div");
+
+  row.className = "trade-row";
+
+
+  const select =
+    document.createElement("select");
+
+
+  const input =
+    document.createElement("input");
+
+  input.type = "number";
+  input.min = "1";
+  input.value = "1";
+  input.style.width = "70px";
+
+
+  const remove =
+    document.createElement("button");
+
+  remove.className = "remove";
+  remove.textContent = "×";
+
+
+  function update() {
+    updateCalculator();
+  }
+
+
+  select.innerHTML = `
+    <option value="">Select pet</option>
+    ${
+      pets.map(pet => `
+        <option value="${pet.id}">
+          ${escapeHtml(pet.name)}
+          — ${formatValue(pet.value)}
+        </option>
+      `).join("")
+    }
+  `;
+
+
+  select.addEventListener(
+    "change",
+    update
+  );
+
+  input.addEventListener(
+    "input",
+    update
+  );
+
+
+  remove.addEventListener(
+    "click",
+    () => {
+
+      row.remove();
+
+      updateCalculator();
+
+    }
+  );
+
+
+  row.appendChild(select);
+  row.appendChild(input);
+  row.appendChild(remove);
+
+  container.appendChild(row);
+
+}
+
+
+
+function getTradeTotal(containerId) {
+
+  const container =
+    document.getElementById(containerId);
+
+  let total = 0;
+
+
+  container
+    .querySelectorAll(".trade-row")
+    .forEach(row => {
+
+      const id =
+        row.querySelector("select").value;
+
+      const amount =
+        Number(
+          row.querySelector("input").value
+        ) || 0;
+
+
+      const pet =
+        pets.find(p => p.id === id);
+
+
+      if (pet) {
+
+        total +=
+          Number(pet.value || 0) *
+          amount;
+
+      }
+
+    });
+
+
+  return total;
+
+}
+
+
+
+function updateCalculator() {
+
+  const yourTotal =
+    getTradeTotal("yourItems");
+
+  const theirTotal =
+    getTradeTotal("theirItems");
+
+
+  document.getElementById("yourTotal")
+    .textContent =
+      formatValue(yourTotal);
+
+
+  document.getElementById("theirTotal")
+    .textContent =
+      formatValue(theirTotal);
 
 
   const result =
@@ -734,575 +1278,314 @@ function calcTrade() {
 
   if (!yourTotal && !theirTotal) {
 
-    result.textContent =
-      "Add pets to check the trade.";
+    result.innerHTML =
+      "Add pets to compare the trade.";
 
     return;
 
   }
 
 
-  if (yourTotal === theirTotal) {
+  if (!yourTotal || !theirTotal) {
 
-    result.textContent =
-      "⚖️ Fair Trade";
+    result.innerHTML =
+      "Add pets to both sides.";
 
     return;
 
   }
 
 
-  if (theirTotal > yourTotal) {
+  const difference =
+    theirTotal - yourTotal;
 
-    result.innerHTML =
-      `<span class="good">🟢 Win</span>
-       · They are offering
-       ${fmt(theirTotal - yourTotal)}
-       more value.`;
 
-  } else {
-
-    result.innerHTML =
-      `<span class="bad">🔴 Loss</span>
-       · You are giving
-       ${fmt(yourTotal - theirTotal)}
-       more value.`;
-
-  }
-
-}
-
-
-function addTrade(side) {
-
-  const selector =
-    side === "you"
-      ? "#yourItems"
-      : "#theirItems";
-
-  const wrap =
-    document.querySelector(selector);
-
-  const row =
-    document.createElement("div");
-
-  row.className = "trade-row";
-
-
-  row.innerHTML = `
-
-    <select>
-
-      ${pets.map(p => `
-
-        <option value="${Number(p.value) || 0}">
-          ${p.name} — ${fmt(p.value)}
-        </option>
-
-      `).join("")}
-
-    </select>
-
-    <input
-      type="number"
-      min="1"
-      value="1"
-    >
-
-    <button
-      class="remove"
-      type="button"
-    >
-      ×
-    </button>
-
-  `;
-
-
-  row.querySelector(".remove").onclick =
-    () => {
-
-      row.remove();
-      calcTrade();
-
-    };
-
-
-  row
-    .querySelectorAll("select,input")
-    .forEach(element => {
-
-      element.oninput = calcTrade;
-
-    });
-
-
-  wrap.appendChild(row);
-
-  calcTrade();
-
-}
-
-
-/* ADMIN BUTTON */
-
-document.getElementById("adminBtn").addEventListener(
-  "click",
-  function () {
-
-    if (adminOk()) {
-
-      show("adminModal");
-
-    } else {
-
-      show("loginModal");
-
-    }
-
-  }
-);
-
-
-/* CLOSE BUTTONS */
-
-document.getElementById("closeLogin").onclick =
-  () => hide("loginModal");
-
-document.getElementById("closeAdmin").onclick =
-  () => hide("adminModal");
-
-
-/* LOGIN */
-
-document.getElementById("loginBtn").onclick =
-  async function () {
-
-    const status =
-      document.getElementById("loginStatus");
-
-    const email =
-      document.getElementById("loginEmail").value.trim();
-
-    const password =
-      document.getElementById("loginPassword").value;
-
-
-    if (!email || !password) {
-
-      status.textContent =
-        "Enter your email and password.";
-
-      return;
-
-    }
-
-
-    status.textContent =
-      "Logging in...";
-
-
-    try {
-
-      const result =
-        await auth.signInWithEmailAndPassword(
-          email,
-          password
-        );
-
-
-      if (result.user.uid !== ADMIN_UID) {
-
-        await auth.signOut();
-
-        status.textContent =
-          "This account is not the admin account.";
-
-        return;
-
-      }
-
-
-      hide("loginModal");
-      show("adminModal");
-
-      status.textContent = "";
-
-
-    } catch (error) {
-
-      console.error(error);
-
-      status.textContent =
-        "Login failed. Check your email and password.";
-
-    }
-
-  };
-
-
-/* LOGOUT */
-
-document.getElementById("logoutBtn").onclick =
-  async function () {
-
-    await auth.signOut();
-
-    hide("adminModal");
-
-    document.getElementById("adminBtn").textContent =
-      "🔐 Admin";
-
-  };
-
-
-/* MOBILE MENU */
-
-document.getElementById("mobileBtn").onclick =
-  function () {
-
-    const nav =
-      document.querySelector("nav");
-
-    if (nav.style.display === "flex") {
-
-      nav.style.display = "none";
-
-    } else {
-
-      nav.style.display = "flex";
-      nav.style.position = "absolute";
-      nav.style.right = "20px";
-      nav.style.top = "62px";
-      nav.style.flexDirection = "column";
-      nav.style.background = "#0d1020";
-      nav.style.padding = "15px";
-      nav.style.border = "1px solid #202744";
-      nav.style.borderRadius = "10px";
-
-    }
-
-  };
-
-
-/* SEARCH */
-
-document.getElementById("search").oninput =
-  renderPets;
-
-
-/* SORT */
-
-document.getElementById("sort").onchange =
-  renderPets;
-
-
-/* FILTERS */
-
-document
-  .querySelectorAll(".filter")
-  .forEach(button => {
-
-    button.onclick = function () {
-
-      document
-        .querySelectorAll(".filter")
-        .forEach(x =>
-          x.classList.remove("active")
-        );
-
-      button.classList.add("active");
-
-      renderPets();
-
-    };
-
-  });
-
-
-/* CALCULATOR BUTTONS */
-
-document.getElementById("addYou").onclick =
-  () => addTrade("you");
-
-document.getElementById("addThem").onclick =
-  () => addTrade("them");
-
-
-/* PET FORM */
-
-document.getElementById("petForm").onsubmit =
-  async function (event) {
-
-    event.preventDefault();
-
-
-    if (!adminOk()) {
-
-      alert("Admin login required.");
-
-      return;
-
-    }
-
-
-    const editId =
-      document.getElementById("editId").value;
-
-
-    const id =
-      editId ||
-      db.ref("pets").push().key;
-
-
-    const pet = {
-
-      name:
-        document.getElementById("petName")
-          .value
-          .trim(),
-
-      rarity:
-        document.getElementById("petRarity")
-          .value,
-
-      value:
-        Number(
-          document.getElementById("petValue")
-            .value
-        ),
-
-      demand:
-        Number(
-          document.getElementById("petDemand")
-            .value
-        ),
-
-      trend:
-        Number(
-          document.getElementById("petTrend")
-            .value
-        ),
-
-      icon:
-        document.getElementById("petIcon")
-          .value
-          .trim() || "🐾"
-
-    };
-
-
-    try {
-
-      await db
-        .ref("pets/" + id)
-        .set(pet);
-
-
-      this.reset();
-
-      document.getElementById("editId").value = "";
-
-
-    } catch (error) {
-
-      console.error(error);
-
-      alert(
-        "Could not save pet. Check Firebase rules."
-      );
-
-    }
-
-  };
-
-
-/* CLEAR FORM */
-
-document.getElementById("cancelEdit").onclick =
-  function () {
-
-    document.getElementById("petForm").reset();
-
-    document.getElementById("editId").value = "";
-
-  };
-
-
-/* EDIT / DELETE */
-
-document.getElementById("adminPets").onclick =
-  async function (event) {
-
-    const id =
-      event.target.dataset.id;
-
-    if (!id)
-      return;
-
-
-    const pet =
-      pets.find(x => x.id === id);
-
-
-    if (
-      event.target.classList.contains("delete")
-    ) {
-
-      if (
-        confirm("Delete this pet?")
-      ) {
-
-        try {
-
-          await db
-            .ref("pets/" + id)
-            .remove();
-
-        } catch (error) {
-
-          console.error(error);
-
-          alert(
-            "Could not delete pet. Check Firebase rules."
-          );
-
-        }
-
-      }
-
-      return;
-
-    }
-
-
-    if (
-      event.target.classList.contains("edit") &&
-      pet
-    ) {
-
-      document.getElementById("editId").value =
-        id;
-
-      document.getElementById("petName").value =
-        pet.name || "";
-
-      document.getElementById("petRarity").value =
-        pet.rarity || "Secret";
-
-      document.getElementById("petValue").value =
-        pet.value || 0;
-
-      document.getElementById("petDemand").value =
-        pet.demand || 1;
-
-      document.getElementById("petTrend").value =
-        pet.trend || 0;
-
-      document.getElementById("petIcon").value =
-        pet.icon || "";
-
-    }
-
-  };
-
-
-/* AUTH STATE */
-
-auth.onAuthStateChanged(function (user) {
-
-  const button =
-    document.getElementById("adminBtn");
-
-
-  if (
-    user &&
-    user.uid === ADMIN_UID
-  ) {
-
-    button.textContent =
-      "⚙️ Admin";
-
-  } else {
-
-    button.textContent =
-      "🔐 Admin";
-
-  }
-
-});
-
-
-/* FIREBASE DATABASE */
-
-db.ref("pets").on(
-  "value",
-  function (snapshot) {
-
-    const data =
-      snapshot.val();
-
-
-    if (data) {
-
-      pets =
-        Object.entries(data).map(
-          ([id, pet]) => ({
-            ...pet,
-            id
-          })
-        );
-
-    } else {
-
-      pets =
-        defaultPets.map(
-          (pet, index) => ({
-            ...pet,
-            id: "starter-" + index
-          })
-        );
-
-    }
-
-
-    renderPets();
-    renderTrends();
-    renderAdmin();
-
-  },
-  function (error) {
-
-    console.error(
-      "Firebase database error:",
-      error
+  const percentage =
+    Math.abs(
+      difference / yourTotal * 100
     );
 
 
-    pets =
-      defaultPets.map(
-        (pet, index) => ({
-          ...pet,
-          id: "starter-" + index
-        })
-      );
+  if (Math.abs(difference) < yourTotal * 0.1) {
 
+    result.innerHTML = `
+      <span class="good">
+        Fair Trade
+      </span>
+      — Difference: ${formatValue(Math.abs(difference))}
+    `;
 
-    renderPets();
-    renderTrends();
-    renderAdmin();
+  } else if (difference > 0) {
+
+    result.innerHTML = `
+      <span class="good">
+        Win
+      </span>
+      — You are getting about
+      ${percentage.toFixed(1)}% more value.
+    `;
+
+  } else {
+
+    result.innerHTML = `
+      <span class="bad">
+        Lose
+      </span>
+      — You are giving about
+      ${percentage.toFixed(1)}% more value.
+    `;
 
   }
-);
+
+}
 
 
-/* INITIAL RENDER */
 
-renderPets();
-renderTrends();
-renderAdmin();
+/* ---------- CALCULATOR BUTTONS ---------- */
+
+document.getElementById("addYour")
+  .addEventListener(
+    "click",
+    () => {
+
+      createTradeRow(
+        document.getElementById("yourItems"),
+        "your"
+      );
+
+      updateCalculator();
+
+    }
+  );
+
+
+document.getElementById("addTheir")
+  .addEventListener(
+    "click",
+    () => {
+
+      createTradeRow(
+        document.getElementById("theirItems"),
+        "their"
+      );
+
+      updateCalculator();
+
+    }
+  );
+
+
+
+/* ---------- START ---------- */
+
+loadPets();
 
 </script>
+
+
+<!-- MODAL / ADMIN CSS -->
+
+<style>
+
+.hidden {
+  display: none !important;
+}
+
+
+.admin-btn {
+  margin-left: auto;
+  padding: 10px 14px;
+  border-radius: 9px;
+  border: 1px solid #39305b;
+  background: #141027;
+  color: #cfc4ff;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+
+.admin-btn:hover {
+  border-color: #6955a3;
+  background: #1a1533;
+}
+
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(3, 4, 12, .78);
+  backdrop-filter: blur(10px);
+}
+
+
+.modal-card {
+  width: min(430px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  background: #0d1020;
+  border: 1px solid #292f4d;
+  border-radius: 17px;
+  padding: 25px;
+  box-shadow: 0 25px 80px rgba(0,0,0,.5);
+}
+
+
+.admin-card {
+  width: min(650px, 100%);
+}
+
+
+.modal-card h2 {
+  margin: 7px 0 8px;
+}
+
+
+.modal-text {
+  color: #8c94b3;
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  border: 0;
+  background: transparent;
+  color: #8c94b3;
+  font-size: 27px;
+  cursor: pointer;
+}
+
+
+.modal-card input,
+.modal-card select {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 12px;
+  border-radius: 9px;
+  border: 1px solid #202744;
+  background: #080b17;
+  color: #eee;
+  outline: none;
+}
+
+
+.modal-card input:focus,
+.modal-card select:focus {
+  border-color: #6955a3;
+}
+
+
+.full {
+  width: 100%;
+  border: 0;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+
+.status {
+  min-height: 18px;
+  margin-top: 12px;
+  color: #8c94b3;
+  font-size: 12px;
+}
+
+
+.admin-list {
+  margin-top: 20px;
+  border-top: 1px solid #202744;
+}
+
+
+.admin-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #202744;
+}
+
+
+.admin-row strong {
+  display: block;
+  font-size: 13px;
+}
+
+
+.admin-row small {
+  color: #8c94b3;
+  font-size: 11px;
+}
+
+
+.admin-actions {
+  display: flex;
+  gap: 6px;
+}
+
+
+.admin-actions button {
+  border: 1px solid #303755;
+  border-radius: 7px;
+  padding: 7px 10px;
+  cursor: pointer;
+  color: white;
+}
+
+
+.edit {
+  background: #171b30;
+}
+
+
+.delete {
+  background: #351523;
+  color: #ff8da0 !important;
+}
+
+
+.pet-photo {
+  width: 52px;
+  height: 52px;
+  border-radius: 13px;
+  object-fit: cover;
+  border: 1px solid #45406d;
+  background: #19162d;
+}
+
+
+@media(max-width:800px) {
+
+  .admin-btn {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .admin-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .admin-actions {
+    width: 100%;
+  }
+
+  .admin-actions button {
+    flex: 1;
+  }
+
+}
+
+</style>
 
 </body>
 </html>
