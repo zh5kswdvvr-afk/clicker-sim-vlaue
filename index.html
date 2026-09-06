@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nova Values — Clicker Simulator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#"><span class="logo">✦</span><span>NOVA<span>VALUES</span></span></a>
+  <nav>
+    <a class="active" href="#values">Values</a>
+    <a href="#trends">Trends</a>
+    <a href="#calculator">Calculator</a>
+    <a href="#about">About</a>
+  </nav>
+  <button class="mobile-btn" onclick="toggleMenu()">☰</button>
+</header>
+
+<section class="hero">
+  <div class="stars"></div>
+  <div class="hero-inner">
+    <div class="pill">✦ CLICKER SIMULATOR VALUE LIST</div>
+    <h1>Know the <span>real value.</span></h1>
+    <p>Fast, clean and community-driven values for your Clicker Simulator trades.</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="#values">Explore Values →</a>
+      <a class="btn ghost" href="#calculator">Trade Calculator</a>
+    </div>
+  </div>
+</section>
+
+<main>
+<section id="values" class="section">
+  <div class="section-head">
+    <div><span class="eyebrow">DATABASE</span><h2>Pet Values</h2></div>
+    <div class="controls">
+      <input id="search" placeholder="🔎  Search pets..." oninput="renderPets()">
+      <select id="sort" onchange="renderPets()">
+        <option value="value">Highest Value</option>
+        <option value="name">Name</option>
+        <option value="demand">Demand</option>
+      </select>
+    </div>
+  </div>
+  <div class="filters">
+    <button class="filter active" data-rarity="all">All</button>
+    <button class="filter" data-rarity="Secret">Secret</button>
+    <button class="filter" data-rarity="Mythic">Mythic</button>
+    <button class="filter" data-rarity="Legendary">Legendary</button>
+    <button class="filter" data-rarity="Exclusive">Exclusive</button>
+  </div>
+  <div id="petGrid" class="pet-grid"></div>
+</section>
+
+<section id="trends" class="section alt">
+  <div class="section-head">
+    <div><span class="eyebrow">MARKET</span><h2>Value Trends</h2></div>
+  </div>
+  <div class="trend-grid" id="trendGrid"></div>
+</section>
+
+<section id="calculator" class="section">
+  <div class="section-head">
+    <div><span class="eyebrow">TRADING</span><h2>Trade Calculator</h2></div>
+  </div>
+  <div class="calculator">
+    <div class="trade-side">
+      <h3>Your Offer</h3>
+      <div id="yourItems"></div>
+      <button class="add" onclick="addTrade('you')">＋ Add Pet</button>
+      <div class="total">Total <strong id="yourTotal">0</strong></div>
+    </div>
+    <div class="swap">⇄</div>
+    <div class="trade-side">
+      <h3>Their Offer</h3>
+      <div id="theirItems"></div>
+      <button class="add" onclick="addTrade('them')">＋ Add Pet</button>
+      <div class="total">Total <strong id="theirTotal">0</strong></div>
+    </div>
+    <div class="result" id="tradeResult">Add pets to check the trade.</div>
+  </div>
+</section>
+
+<section id="about" class="section about">
+  <div>
+    <span class="eyebrow">ABOUT NOVA VALUES</span>
+    <h2>Built for traders.</h2>
+    <p>Nova Values is a fan-made value-list template for Clicker Simulator. Replace the sample pets and values in <code>script.js</code> with your own data.</p>
+  </div>
+  <div class="stats"><div><b>24/7</b><span>Value access</span></div><div><b>W/F/L</b><span>Trade checks</span></div><div><b>∞</b><span>Custom pets</span></div></div>
+</section>
+</main>
+<footer>© 2026 Nova Values · Fan-made project · Not affiliated with the game developer.</footer>
+<script src="script.js"></script>
+</body>
+</html>
