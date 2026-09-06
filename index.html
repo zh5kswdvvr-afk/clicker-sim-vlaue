@@ -10,89 +10,65 @@
 <header class="topbar">
   <a class="brand" href="#"><span class="logo">✦</span><span>NOVA<span>VALUES</span></span></a>
   <nav>
-    <a class="active" href="#values">Values</a>
-    <a href="#trends">Trends</a>
-    <a href="#calculator">Calculator</a>
-    <a href="#about">About</a>
+    <a class="active" href="#values">Values</a><a href="#trends">Trends</a><a href="#calculator">Calculator</a><a href="#about">About</a>
   </nav>
   <button class="mobile-btn" onclick="toggleMenu()">☰</button>
+  <button class="admin-btn" id="adminBtn">🔐 Admin</button>
 </header>
 
-<section class="hero">
-  <div class="stars"></div>
-  <div class="hero-inner">
-    <div class="pill">✦ CLICKER SIMULATOR VALUE LIST</div>
-    <h1>Know the <span>real value.</span></h1>
-    <p>Fast, clean and community-driven values for your Clicker Simulator trades.</p>
-    <div class="hero-actions">
-      <a class="btn primary" href="#values">Explore Values →</a>
-      <a class="btn ghost" href="#calculator">Trade Calculator</a>
-    </div>
-  </div>
-</section>
+<section class="hero"><div class="stars"></div><div class="hero-inner">
+  <div class="pill">✦ CLICKER SIMULATOR VALUE LIST</div><h1>Know the <span>real value.</span></h1>
+  <p>Fast, clean and community-driven values for your Clicker Simulator trades.</p>
+  <div class="hero-actions"><a class="btn primary" href="#values">Explore Values →</a><a class="btn ghost" href="#calculator">Trade Calculator</a></div>
+</div></section>
 
 <main>
-<section id="values" class="section">
-  <div class="section-head">
-    <div><span class="eyebrow">DATABASE</span><h2>Pet Values</h2></div>
-    <div class="controls">
-      <input id="search" placeholder="🔎  Search pets..." oninput="renderPets()">
-      <select id="sort" onchange="renderPets()">
-        <option value="value">Highest Value</option>
-        <option value="name">Name</option>
-        <option value="demand">Demand</option>
-      </select>
-    </div>
-  </div>
-  <div class="filters">
-    <button class="filter active" data-rarity="all">All</button>
-    <button class="filter" data-rarity="Secret">Secret</button>
-    <button class="filter" data-rarity="Mythic">Mythic</button>
-    <button class="filter" data-rarity="Legendary">Legendary</button>
-    <button class="filter" data-rarity="Exclusive">Exclusive</button>
-  </div>
-  <div id="petGrid" class="pet-grid"></div>
-</section>
+<section id="values" class="section"><div class="section-head"><div><span class="eyebrow">DATABASE</span><h2>Pet Values</h2></div><div class="controls">
+<input id="search" placeholder="🔎  Search pets..."><select id="sort"><option value="value">Highest Value</option><option value="name">Name</option><option value="demand">Demand</option></select>
+</div></div>
+<div class="filters"><button class="filter active" data-rarity="all">All</button><button class="filter" data-rarity="Secret">Secret</button><button class="filter" data-rarity="Mythic">Mythic</button><button class="filter" data-rarity="Legendary">Legendary</button><button class="filter" data-rarity="Exclusive">Exclusive</button></div>
+<div id="petGrid" class="pet-grid"></div></section>
+<section id="trends" class="section alt"><div class="section-head"><div><span class="eyebrow">MARKET</span><h2>Value Trends</h2></div></div><div class="trend-grid" id="trendGrid"></div></section>
+<section id="calculator" class="section"><div class="section-head"><div><span class="eyebrow">TRADING</span><h2>Trade Calculator</h2></div></div><div class="calculator">
+<div class="trade-side"><h3>Your Offer</h3><div id="yourItems"></div><button class="add" id="addYou">＋ Add Pet</button><div class="total">Total <strong id="yourTotal">0</strong></div></div><div class="swap">⇄</div>
+<div class="trade-side"><h3>Their Offer</h3><div id="theirItems"></div><button class="add" id="addThem">＋ Add Pet</button><div class="total">Total <strong id="theirTotal">0</strong></div></div><div class="result" id="tradeResult">Add pets to check the trade.</div></div></section>
+<section id="about" class="section about"><div><span class="eyebrow">ABOUT NOVA VALUES</span><h2>Built for traders.</h2><p>Nova Values is a fan-made value-list for Clicker Simulator.</p></div><div class="stats"><div><b>24/7</b><span>Value access</span></div><div><b>W/F/L</b><span>Trade checks</span></div><div><b>∞</b><span>Custom pets</span></div></div></section>
+</main><footer>© 2026 Nova Values · Fan-made project · Not affiliated with the game developer.</footer>
 
-<section id="trends" class="section alt">
-  <div class="section-head">
-    <div><span class="eyebrow">MARKET</span><h2>Value Trends</h2></div>
-  </div>
-  <div class="trend-grid" id="trendGrid"></div>
-</section>
+<div class="modal hidden" id="loginModal"><div class="modal-card"><button class="close" data-close="loginModal">×</button><h2>Admin Login</h2><p>Only the Firebase admin account can edit values.</p><input id="loginEmail" type="email" placeholder="Email"><input id="loginPassword" type="password" placeholder="Password"><button id="loginBtn" class="btn primary">Login</button><p id="loginStatus" class="status"></p></div></div>
+<div class="modal hidden" id="adminModal"><div class="modal-card wide"><button class="close" data-close="adminModal">×</button><div class="admin-head"><div><span class="eyebrow">ADMIN</span><h2>Manage Values</h2></div><button id="logoutBtn" class="btn ghost">Log out</button></div>
+<form id="petForm"><input type="hidden" id="editId"><input id="petName" placeholder="Pet name" required><select id="petRarity"><option>Secret</option><option>Mythic</option><option>Legendary</option><option>Exclusive</option></select><input id="petValue" type="number" min="0" placeholder="Value" required><input id="petDemand" type="number" min="1" max="5" placeholder="Demand 1-5" required><input id="petTrend" type="number" min="-100" max="100" placeholder="Trend %" required><input id="petIcon" placeholder="Emoji / icon" maxlength="8"><button class="btn primary" type="submit">Save Pet</button><button class="btn ghost" type="button" id="cancelEdit">Clear</button></form><div id="adminPets"></div></div></div>
 
-<section id="calculator" class="section">
-  <div class="section-head">
-    <div><span class="eyebrow">TRADING</span><h2>Trade Calculator</h2></div>
-  </div>
-  <div class="calculator">
-    <div class="trade-side">
-      <h3>Your Offer</h3>
-      <div id="yourItems"></div>
-      <button class="add" onclick="addTrade('you')">＋ Add Pet</button>
-      <div class="total">Total <strong id="yourTotal">0</strong></div>
-    </div>
-    <div class="swap">⇄</div>
-    <div class="trade-side">
-      <h3>Their Offer</h3>
-      <div id="theirItems"></div>
-      <button class="add" onclick="addTrade('them')">＋ Add Pet</button>
-      <div class="total">Total <strong id="theirTotal">0</strong></div>
-    </div>
-    <div class="result" id="tradeResult">Add pets to check the trade.</div>
-  </div>
-</section>
-
-<section id="about" class="section about">
-  <div>
-    <span class="eyebrow">ABOUT NOVA VALUES</span>
-    <h2>Built for traders.</h2>
-    <p>Nova Values is a fan-made value-list template for Clicker Simulator. Replace the sample pets and values in <code>script.js</code> with your own data.</p>
-  </div>
-  <div class="stats"><div><b>24/7</b><span>Value access</span></div><div><b>W/F/L</b><span>Trade checks</span></div><div><b>∞</b><span>Custom pets</span></div></div>
-</section>
-</main>
-<footer>© 2026 Nova Values · Fan-made project · Not affiliated with the game developer.</footer>
-<script src="script.js"></script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+import { getDatabase, ref, onValue, push, set, update, remove } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
+const firebaseConfig={apiKey:"AIzaSyBcqfD5Hukw0ICUeAqBPXQ9f5YCfFPOsgQ",authDomain:"clicker-sim-vlauelist.firebaseapp.com",databaseURL:"https://clicker-sim-vlauelist-default-rtdb.firebaseio.com/",projectId:"clicker-sim-vlauelist",storageBucket:"clicker-sim-vlauelist.firebasestorage.app",messagingSenderId:"797904782595",appId:"1:797904782595:web:5db6b3eb91e8bb652d1536"};
+const ADMIN_UID="PASTE_YOUR_FIREBASE_UID_HERE";
+const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getDatabase(app);
+let pets=[];
+window.nova={db,ref,onValue,push,set,update,remove};
+const defaultPets=[
+{name:"Cosmic Dragon",rarity:"Secret",value:2500000000,demand:5,trend:14,icon:"🐉"},{name:"Galaxy Dominus",rarity:"Secret",value:1800000000,demand:5,trend:9,icon:"👑"},{name:"Void Overlord",rarity:"Secret",value:1250000000,demand:4,trend:-3,icon:"🌑"},{name:"Nebula Serpent",rarity:"Mythic",value:620000000,demand:4,trend:12,icon:"🐍"},{name:"Stellar Kitsune",rarity:"Mythic",value:450000000,demand:4,trend:6,icon:"🦊"},{name:"Quantum Cat",rarity:"Mythic",value:275000000,demand:3,trend:-5,icon:"🐈"},{name:"Astral Phoenix",rarity:"Legendary",value:90000000,demand:3,trend:8,icon:"🔥"},{name:"Moonlight Wolf",rarity:"Legendary",value:65000000,demand:3,trend:2,icon:"🐺"},{name:"Cosmic Bunny",rarity:"Exclusive",value:25000000,demand:2,trend:-2,icon:"🐰"}];
+const fmt=n=>n>=1e9?(n/1e9).toFixed(1)+"B":n>=1e6?(n/1e6).toFixed(1)+"M":n>=1e3?(n/1e3).toFixed(1)+"K":n;
+function renderPets(){const q=document.querySelector('#search').value.toLowerCase(),s=document.querySelector('#sort').value,r=document.querySelector('.filter.active')?.dataset.rarity||'all';let a=pets.filter(p=>(r==='all'||p.rarity===r)&&p.name.toLowerCase().includes(q));a.sort((x,y)=>s==='name'?x.name.localeCompare(y.name):s==='demand'?y.demand-x.demand:y.value-x.value);document.querySelector('#petGrid').innerHTML=a.length?a.map(p=>`<article class="pet"><div class="pet-icon">${p.icon||'🐾'}</div><div><div class="rarity">${p.rarity}</div><h3>${p.name}</h3><div class="meta">Demand ${'★'.repeat(p.demand)}${'☆'.repeat(5-p.demand)}</div></div><div class="value"><b>${fmt(p.value)}</b><small>${p.trend>=0?'↗':'↘'} ${Math.abs(p.trend)}%</small></div></article>`).join(''):'<div class="empty">No pets found.</div>';}
+function renderTrends(){document.querySelector('#trendGrid').innerHTML=pets.slice().sort((a,b)=>b.trend-a.trend).slice(0,6).map(p=>`<div class="trend"><div class="trend-top"><b>${p.icon||'🐾'} ${p.name}</b><b class="${p.trend>=0?'up':'down'}">${p.trend>=0?'+':''}${p.trend}%</b></div><div class="meta">${fmt(p.value)} value · ${p.rarity}</div><div class="bar"><i style="width:${Math.min(100,Math.abs(p.trend)*5+20)}%"></i></div></div>`).join('');}
+function calcTrade(){const sum=s=>[...document.querySelector(s).children].reduce((t,r)=>t+(+r.querySelector('select').value)*(+r.querySelector('input').value),0),y=sum('#yourItems'),t=sum('#theirItems');document.querySelector('#yourTotal').textContent=fmt(y);document.querySelector('#theirTotal').textContent=fmt(t);const o=document.querySelector('#tradeResult');if(!y&&!t){o.textContent='Add pets to check the trade.';return}if(y===t)o.textContent='⚖️ Fair Trade';else if(t>y)o.innerHTML=`<span class="good">🟢 Win</span> · They are offering ${fmt(t-y)} more value.`;else o.innerHTML=`<span class="bad">🔴 Loss</span> · You are giving ${fmt(y-t)} more value.`;}
+function addTrade(side){const wrap=document.querySelector(side==='you'?'#yourItems':'#theirItems'),row=document.createElement('div');row.className='trade-row';row.innerHTML=`<select>${pets.map(p=>`<option value="${p.value}">${p.name} — ${fmt(p.value)}</option>`).join('')}</select><input type="number" min="1" value="1"><button class="remove">×</button>`;row.querySelector('.remove').onclick=()=>{row.remove();calcTrade()};row.querySelectorAll('select,input').forEach(x=>x.oninput=calcTrade);wrap.appendChild(row);calcTrade();}
+function adminOk(user){return !!user&&ADMIN_UID!=="PASTE_YOUR_FIREBASE_UID_HERE"&&user.uid===ADMIN_UID;}
+function show(id){document.querySelector('#'+id).classList.remove('hidden')}function hide(id){document.querySelector('#'+id).classList.add('hidden')}
+function renderAdmin(){document.querySelector('#adminPets').innerHTML=pets.map(p=>`<div class="admin-row"><span>${p.icon||'🐾'} <b>${p.name}</b><small>${p.rarity} · ${fmt(p.value)}</small></span><span><button class="edit" data-id="${p.id}">Edit</button><button class="delete" data-id="${p.id}">Delete</button></span></div>`).join('');}
+onAuthStateChanged(auth,user=>{if(adminOk(user)){document.querySelector('#adminBtn').textContent='⚙️ Admin';}else{document.querySelector('#adminBtn').textContent='🔐 Admin';}});
+onValue(ref(db,'pets'),snap=>{const data=snap.val();if(data){pets=Object.entries(data).map(([id,p])=>({...p,id}));}else{pets=defaultPets.map((p,i)=>({...p,id:'starter-'+i}));}renderPets();renderTrends();renderAdmin();});
+document.querySelector('#adminBtn').onclick=()=>{const user=auth.currentUser;if(adminOk(user)){show('adminModal')}else show('loginModal')};
+document.querySelector('#loginBtn').onclick=async()=>{const st=document.querySelector('#loginStatus');try{await signInWithEmailAndPassword(auth,document.querySelector('#loginEmail').value,document.querySelector('#loginPassword').value);hide('loginModal');show('adminModal');st.textContent='';}catch(e){st.textContent='Login failed. Check your email/password.';}};
+document.querySelector('#logoutBtn').onclick=()=>signOut(auth).then(()=>hide('adminModal'));
+document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>hide(b.dataset.close));
+document.querySelector('#search').oninput=renderPets;document.querySelector('#sort').onchange=renderPets;document.querySelectorAll('.filter').forEach(b=>b.onclick=()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderPets()});document.querySelector('#addYou').onclick=()=>addTrade('you');document.querySelector('#addThem').onclick=()=>addTrade('them');
+document.querySelector('#petForm').onsubmit=async e=>{e.preventDefault();if(!adminOk(auth.currentUser))return alert('Admin login required.');const id=document.querySelector('#editId').value||push(ref(db,'pets')).key;const p={name:document.querySelector('#petName').value.trim(),rarity:document.querySelector('#petRarity').value,value:Number(document.querySelector('#petValue').value),demand:Number(document.querySelector('#petDemand').value),trend:Number(document.querySelector('#petTrend').value),icon:document.querySelector('#petIcon').value.trim()||'🐾'};await set(ref(db,'pets/'+id),p);e.target.reset();document.querySelector('#editId').value='';};
+document.querySelector('#cancelEdit').onclick=()=>{document.querySelector('#petForm').reset();document.querySelector('#editId').value='';};
+document.querySelector('#adminPets').onclick=async e=>{const id=e.target.dataset.id;if(!id)return;const p=pets.find(x=>x.id===id);if(e.target.classList.contains('delete')){if(confirm('Delete this pet?'))await remove(ref(db,'pets/'+id));}if(e.target.classList.contains('edit')&&p){document.querySelector('#editId').value=id;document.querySelector('#petName').value=p.name;document.querySelector('#petRarity').value=p.rarity;document.querySelector('#petValue').value=p.value;document.querySelector('#petDemand').value=p.demand;document.querySelector('#petTrend').value=p.trend;document.querySelector('#petIcon').value=p.icon||'';}};
+window.toggleMenu=()=>{const n=document.querySelector('nav');n.style.display=n.style.display==='flex'?'none':'flex';n.style.position='absolute';n.style.right='20px';n.style.top='62px';n.style.flexDirection='column';n.style.background='#0d1020';n.style.padding='15px';n.style.border='1px solid #202744';n.style.borderRadius='10px'};
+</script>
 </body>
 </html>
