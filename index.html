@@ -1324,14 +1324,15 @@ document
 
       } catch (error) {
 
-        console.error(error);
+  console.error("Firebase save error:", error);
 
+  status.innerHTML = `
+    <strong>Firebase Error:</strong><br>
+    Code: ${escapeHtml(error.code || "unknown")}<br>
+    Message: ${escapeHtml(error.message || "Unknown error")}
+  `;
 
-        status.textContent =
-          "Could not save the pet.";
-
-      }
-
+}
     }
   );
 
